@@ -1,0 +1,98 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #252526;
+    padding: 20px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+h1,
+h2,
+h3 {
+    color: #4CAF50;
+}
+
+button {
+    background-color: #3c3c3c;
+    border: none;
+    color: #e0e0e0;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4e4e4e;
+}
+
+.backup-list {
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.backup-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #3c3c3c;
+}
+
+.backup-item:last-child {
+    border-bottom: none;
+}
+
+.backup-info {
+    flex-grow: 1;
+}
+
+.backup-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #3c3c3c;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #4CAF50;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+#backupStatus {
+    margin-top: 10px;
+    font-style: italic;
+}

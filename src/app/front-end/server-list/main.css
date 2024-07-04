@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 15%;
+    background-color: #252526;
+    padding: 20px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+h1,
+h2,
+h3 {
+    color: #4CAF50;
+}
+
+.server-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.server-card {
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.server-card:hover {
+    transform: translateY(-5px);
+}
+
+.server-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.status-indicator.online {
+    background-color: #00ff00;
+}
+
+.status-indicator.offline {
+    background-color: #ff0000;
+}
+
+button {
+    background-color: #3c3c3c;
+    border: none;
+    color: #e0e0e0;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4e4e4e;
+}
+
+.server-info p {
+    margin: 5px 0;
+}
+
+.add-server {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.add-server:hover {
+    background-color: #45a049;
+}

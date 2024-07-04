@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <title>AzuritePanel - Dashboard</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>MC Server Soft</h1>
+            <button id="dashboardBtn">Dashboard</button>
+            <button id="playersBtn">Players</button>
+            <button id="worldsBtn">Worlds</button>
+            <button id="pluginsBtn">Plugins</button>
+            <button id="settingsBtn">Settings</button>
+        </div>
+        <div class="main-content">
+            <div class="server-panel">
+                <div class="server-status">
+                    <h2><span class="status-indicator"></span> Server Status</h2>
+                    <div>
+                        <button id="toggleServer">Start Server</button>
+                        <button id="restartServer" disabled>Restart Server</button>
+                    </div>
+                </div>
+                <div class="server-info">
+                    <h3>Server Information</h3>
+                    <p><strong>IP Address:</strong> localhost</p>
+                    <p><strong>Port:</strong> 25565</p>
+                    <p><strong>Version:</strong> 1.19.4</p>
+                    <p><strong>MOTD:</strong> Welcome to your local Minecraft server!</p>
+                </div>
+            </div>
+            <div class="server-panel">
+                <h3>Player List</h3>
+                <div class="player-list">
+                    <ul>
+                        <!-- Player list will be dynamically populated here -->
+                    </ul>
+                </div>
+            </div>
+            <div class="server-panel">
+                <h3>Console</h3>
+                <div class="console" id="consoleOutput">
+                    <!-- Console output will be dynamically added here -->
+                </div>
+                <input type="text" id="consoleInput" placeholder="Enter console command...">
+            </div>
+        </div>
+    </div>
+    
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

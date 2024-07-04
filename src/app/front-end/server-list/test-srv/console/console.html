@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="console.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>MC Server Soft</h1>
+            <button onclick="location.href='/dashboard'">Dashboard</button>
+            <button onclick="location.href='/server-list'">Server List</button>
+            <button onclick="location.href='/server-1/players'">Players</button>
+            <button onclick="location.href='/server-1/worlds'">Worlds</button>
+            <button onclick="location.href='/server-1/plugins'">Plugins</button>
+            <button onclick="location.href='/server-1/settings'">Settings</button>
+            <button onclick="location.href='/server-1/files'">Files</button>
+            <button onclick="location.href='/server-1/console-and-resource-capacity-usage'">Console & Resources</button>
+        </div>
+        <div class="main-content">
+            <h2>Server 1 - Console and Resource Usage</h2>
+            <div class="console" id="console"></div>
+            <div class="console-input">
+                <input type="text" id="commandInput" placeholder="Enter a command...">
+                <button onclick="sendCommand()">Send</button>
+            </div>
+            <div class="resource-usage">
+                <div class="resource-card">
+                    <h3>CPU Usage</h3>
+                    <div class="resource-value" id="cpuValue">0%</div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="cpuBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h3>Memory Usage</h3>
+                    <div class="resource-value" id="memoryValue">0 MB / 1024 MB</div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="memoryBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h3>Disk Usage</h3>
+                    <div class="resource-value" id="diskValue">0 GB / 50 GB</div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="diskBar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="console.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #252526;
+    padding: 20px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+h1,
+h2,
+h3 {
+    color: #4CAF50;
+}
+
+button {
+    background-color: #3c3c3c;
+    border: none;
+    color: #e0e0e0;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4e4e4e;
+}
+
+.file-explorer {
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    padding: 20px;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+}
+
+.folder,
+.file {
+    padding: 5px;
+    margin: 2px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.folder:hover,
+.file:hover {
+    background-color: #3c3c3c;
+}
+
+.folder::before {
+    content: "📁";
+    margin-right: 5px;
+}
+
+.file::before {
+    content: "📄";
+    margin-right: 5px;
+}
+
+.breadcrumb {
+    margin-bottom: 10px;
+}
+
+.breadcrumb a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.action-buttons {
+    margin-bottom: 10px;
+}
+
+.file-content {
+    background-color: #1e1e1e;
+    border: 1px solid #3c3c3c;
+    padding: 10px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    display: none;
+}

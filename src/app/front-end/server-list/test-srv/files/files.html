@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="files.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>MC Server Soft</h1>
+            <button onclick="location.href='/dashboard'">Dashboard</button>
+            <button onclick="location.href='/server-list'">Server List</button>
+            <button onclick="location.href='/server-1/players'">Players</button>
+            <button onclick="location.href='/server-1/worlds'">Worlds</button>
+            <button onclick="location.href='/server-1/plugins'">Plugins</button>
+            <button onclick="location.href='/server-1/settings'">Settings</button>
+            <button onclick="location.href='/server-1/files'">Files</button>
+        </div>
+        <div class="main-content">
+            <h2>Server 1 - File Explorer</h2>
+            <div class="breadcrumb" id="breadcrumb">
+                <a href="#" onclick="navigateTo('/')">Root</a>
+            </div>
+            <div class="action-buttons">
+                <button onclick="createFolder()">Create Folder</button>
+                <button onclick="createFile()">Create File</button>
+                <button onclick="uploadFile()">Upload File</button>
+            </div>
+            <div class="file-explorer" id="fileExplorer"></div>
+            <div class="file-content" id="fileContent"></div>
+        </div>
+    </div>
+
+    <script src="files.js"></script>
+</body>
+
+</html>

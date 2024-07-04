@@ -1,0 +1,282 @@
+<html><head><base href="https://minecraft-localhost-server-manager.app/app/workspace">
+<title>Minecraft Local Server Manager - Workspace</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  .sidebar {
+    width: 200px;
+    background-color: #252526;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  h1, h2, h3 {
+    color: #4CAF50;
+  }
+  button {
+    background-color: #3c3c3c;
+    border: none;
+    color: #e0e0e0;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #4e4e4e;
+  }
+  .workspace {
+    display: flex;
+    flex-grow: 1;
+  }
+  .server-list {
+    width: 200px;
+    background-color: #2d2d2d;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  .server-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #3c3c3c;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .server-item:hover {
+    background-color: #4e4e4e;
+  }
+  .server-item.active {
+    background-color: #4CAF50;
+  }
+  .server-panel {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .server-tabs {
+    display: flex;
+    border-bottom: 1px solid #3c3c3c;
+  }
+  .server-tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+  }
+  .server-tab.active {
+    border-bottom-color: #4CAF50;
+  }
+  .server-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #2d2d2d;
+    overflow-y: auto;
+  }
+  .console {
+    font-family: monospace;
+    white-space: pre-wrap;
+    height: 300px;
+    overflow-y: scroll;
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 3px;
+  }
+  .console-input {
+    display: flex;
+    margin-top: 10px;
+  }
+  .console-input input {
+    flex-grow: 1;
+    background-color: #3c3c3c;
+    border: none;
+    color: #e0e0e0;
+    padding: 8px;
+  }
+  .status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+  }
+  .status-online {
+    background-color: #4CAF50;
+  }
+  .status-offline {
+    background-color: #f44336;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h1>MC Server Soft</h1>
+      <button onclick="location.href='/dashboard'">Dashboard</button>
+      <button onclick="location.href='/server-list'">Server List</button>
+      <button onclick="location.href='/app/settings'">App Settings</button>
+      <button onclick="location.href='/app/updates'">Check for Updates</button>
+      <button onclick="location.href='/app/about'">About</button>
+      <button onclick="location.href='/app/workspace'">Workspace</button>
+    </div>
+    <div class="main-content">
+      <h2>Workspace</h2>
+      <div class="workspace">
+        <div class="server-list" id="serverList">
+          <!-- Server items will be dynamically added here -->
+        </div>
+        <div class="server-panel">
+          <div class="server-tabs">
+            <div class="server-tab active" onclick="switchTab('console')">Console</div>
+            <div class="server-tab" onclick="switchTab('players')">Players</div>
+            <div class="server-tab" onclick="switchTab('performance')">Performance</div>
+          </div>
+          <div class="server-content" id="serverContent">
+            <!-- Tab content will be dynamically added here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const servers = [
+      { id: 1, name: "Survival Server", status: "online" },
+      { id: 2, name: "Creative Server", status: "offline" },
+      { id: 3, name: "Modded Server", status: "online" },
+    ];
+
+    let activeServer = null;
+    let activeTab = 'console';
+
+    function renderServerList() {
+      const serverList = document.getElementById('serverList');
+      serverList.innerHTML = '';
+      servers.forEach(server => {
+        const serverItem = document.createElement('div');
+        serverItem.className = `server-item${server.id === activeServer?.id ? ' active' : ''}`;
+        serverItem.innerHTML = `
+          <span class="status-indicator ${server.status === 'online' ? 'status-online' : 'status-offline'}"></span>
+          ${server.name}
+        `;
+        serverItem.onclick = () => selectServer(server);
+        serverList.appendChild(serverItem);
+      });
+    }
+
+    function selectServer(server) {
+      activeServer = server;
+      renderServerList();
+      renderServerContent();
+    }
+
+    function switchTab(tab) {
+      activeTab = tab;
+      document.querySelectorAll('.server-tab').forEach(tabElement => {
+        tabElement.classList.toggle('active', tabElement.textContent.toLowerCase() === tab);
+      });
+      renderServerContent();
+    }
+
+    function renderServerContent() {
+      const content = document.getElementById('serverContent');
+      if (!activeServer) {
+        content.innerHTML = '<p>Select a server to view details.</p>';
+        return;
+      }
+
+      switch (activeTab) {
+        case 'console':
+          content.innerHTML = `
+            <div class="console" id="consoleOutput"></div>
+            <div class="console-input">
+              <input type="text" id="consoleInput" placeholder="Enter command...">
+              <button onclick="sendCommand()">Send</button>
+            </div>
+          `;
+          simulateConsoleOutput();
+          break;
+        case 'players':
+          content.innerHTML = `
+            <h3>Online Players</h3>
+            <ul>
+              <li>Player1</li>
+              <li>Player2</li>
+              <li>Player3</li>
+            </ul>
+          `;
+          break;
+        case 'performance':
+          content.innerHTML = `
+            <h3>Server Performance</h3>
+            <p>CPU Usage: 35%</p>
+            <p>Memory Usage: 2048MB / 4096MB</p>
+            <p>TPS: 20</p>
+          `;
+          break;
+      }
+    }
+
+    function simulateConsoleOutput() {
+      const consoleOutput = document.getElementById('consoleOutput');
+      const messages = [
+        "[INFO] Server started",
+        "[INFO] Loading world...",
+        "[INFO] World loaded. Seed: 1234567890",
+        "[INFO] Player1 joined the game",
+        "[INFO] Player2 joined the game",
+        "[WARN] Can't keep up! Is the server overloaded?",
+        "[INFO] Player3 joined the game",
+        "[INFO] Player1 lost connection: Timed out",
+      ];
+
+      let i = 0;
+      function addMessage() {
+        if (i < messages.length) {
+          consoleOutput.innerHTML += messages[i] + '\n';
+          consoleOutput.scrollTop = consoleOutput.scrollHeight;
+          i++;
+          setTimeout(addMessage, Math.random() * 2000 + 1000);
+        }
+      }
+      addMessage();
+    }
+
+    function sendCommand() {
+      const input = document.getElementById('consoleInput');
+      const command = input.value.trim();
+      if (command) {
+        const consoleOutput = document.getElementById('consoleOutput');
+        consoleOutput.innerHTML += `> ${command}\n`;
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        input.value = '';
+        // In a real application, this would send the command to the server
+        setTimeout(() => {
+          consoleOutput.innerHTML += `[INFO] Executed command: ${command}\n`;
+          consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }, 500);
+      }
+    }
+
+    // Initial render
+    renderServerList();
+    renderServerContent();
+  </script>
+</body></html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>AzuritePanel</h1>
+            <button onclick="location.href='/dashboard'">Dashboard</button>
+            <button onclick="location.href='/server-list'">Server List</button>
+            <button onclick="location.href='/players'">Players</button>
+            <button onclick="location.href='/worlds'">Worlds</button>
+            <button onclick="location.href='/plugins'">Plugins</button>
+            <button onclick="location.href='/settings'">Settings</button>
+        </div>
+        <div class="main-content">
+            <h2>Server List</h2>
+            <button class="add-server" onclick="addServer()">Add New Server</button>
+            <div class="server-list" id="serverList">
+                <!-- Server cards will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

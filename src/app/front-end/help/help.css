@@ -1,0 +1,90 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #252526;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+h1,
+h2,
+h3 {
+    color: #4CAF50;
+}
+
+button {
+    background-color: #3c3c3c;
+    border: none;
+    color: #e0e0e0;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4e4e4e;
+}
+
+.help-section {
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+}
+
+.faq-question {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.faq-answer {
+    margin-top: 5px;
+    display: none;
+}
+
+.search-bar {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    background-color: #3c3c3c;
+    color: #e0e0e0;
+}
+
+.search-bar button {
+    margin-left: 10px;
+}

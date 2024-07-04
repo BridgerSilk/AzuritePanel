@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="backups.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>MC Server Soft</h1>
+            <button onclick="location.href='/dashboard'">Dashboard</button>
+            <button onclick="location.href='/server-list'">Server List</button>
+            <button onclick="location.href='/server-1/players'">Players</button>
+            <button onclick="location.href='/server-1/worlds'">Worlds</button>
+            <button onclick="location.href='/server-1/plugins'">Plugins</button>
+            <button onclick="location.href='/server-1/settings'">Settings</button>
+            <button onclick="location.href='/server-1/files'">Files</button>
+            <button onclick="location.href='/server-1/console-and-resource-capacity-usage'">Console & Resources</button>
+            <button onclick="location.href='/server-1/backups'">Backups</button>
+        </div>
+        <div class="main-content">
+            <h2>Server 1 - Backups</h2>
+            <button onclick="createBackup()">Create New Backup</button>
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="backupProgress"></div>
+            </div>
+            <div id="backupStatus"></div>
+            <div class="backup-list" id="backupList">
+                <!-- Backup items will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="backups.js"></script>
+</body>
+
+</html>

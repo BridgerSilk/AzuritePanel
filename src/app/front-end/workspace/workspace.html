@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="workspace.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>MC Server Soft</h1>
+            <button onclick="location.href='/dashboard'">Dashboard</button>
+            <button onclick="location.href='/server-list'">Server List</button>
+            <button onclick="location.href='/app/settings'">App Settings</button>
+            <button onclick="location.href='/app/updates'">Check for Updates</button>
+            <button onclick="location.href='/app/about'">About</button>
+            <button onclick="location.href='/app/workspace'">Workspace</button>
+        </div>
+        <div class="main-content">
+            <h2>Workspace</h2>
+            <div class="workspace">
+                <div class="server-list" id="serverList">
+                    <!-- Server items will be dynamically added here -->
+                </div>
+                <div class="server-panel">
+                    <div class="server-tabs">
+                        <div class="server-tab active" onclick="switchTab('console')">Console</div>
+                        <div class="server-tab" onclick="switchTab('players')">Players</div>
+                        <div class="server-tab" onclick="switchTab('performance')">Performance</div>
+                    </div>
+                    <div class="server-content" id="serverContent">
+                        <!-- Tab content will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="workspace.js"></script>
+</body>
+
+</html>

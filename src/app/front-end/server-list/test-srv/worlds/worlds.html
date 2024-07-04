@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="worlds.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>MC Server Soft</h1>
+            <button onclick="location.href='/dashboard'">Dashboard</button>
+            <button onclick="location.href='/server-list'">Server List</button>
+            <button onclick="location.href='/server-1/players'">Players</button>
+            <button onclick="location.href='/server-1/worlds'">Worlds</button>
+            <button onclick="location.href='/server-1/plugins'">Plugins</button>
+            <button onclick="location.href='/server-1/settings'">Settings</button>
+        </div>
+        <div class="main-content">
+            <h2>Server 1 - Worlds</h2>
+            <button class="add-world" onclick="addWorld()">Create New World</button>
+            <div class="world-list" id="worldList">
+                <!-- World cards will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="worlds.js"></script>
+</body>
+
+</html>

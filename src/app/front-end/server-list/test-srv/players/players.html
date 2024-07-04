@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="players.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>MC Server Soft</h1>
+            <button onclick="location.href='/dashboard'">Dashboard</button>
+            <button onclick="location.href='/server-list'">Server List</button>
+            <button onclick="location.href='/server-1/players'">Players</button>
+            <button onclick="location.href='/server-1/world'">World</button>
+            <button onclick="location.href='/server-1/plugins'">Plugins</button>
+            <button onclick="location.href='/server-1/settings'">Settings</button>
+        </div>
+        <div class="main-content">
+            <h2>Server 1 - Player List</h2>
+            <div class="search-bar">
+                <input type="text" id="playerSearch" placeholder="Search players..." onkeyup="searchPlayers()">
+            </div>
+            <div class="player-list" id="playerList">
+                <!-- Player cards will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="players.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="help.css">
+    <title>AzuritePanel - Help</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>MC Server Soft</h1>
+            <button onclick="location.href='/dashboard'">Dashboard</button>
+            <button onclick="location.href='/server-list'">Server List</button>
+            <button onclick="location.href='/app/settings'">App Settings</button>
+            <button onclick="location.href='/app/updates'">Check for Updates</button>
+            <button onclick="location.href='/app/about'">About</button>
+            <button onclick="location.href='/app/workspace'">Workspace</button>
+            <button onclick="location.href='/app/help'">Help</button>
+        </div>
+        <div class="main-content">
+            <h2>Help Center</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for help topics...">
+                <button onclick="searchHelp()">Search</button>
+            </div>
+
+            <div class="help-section">
+                <h3>Quick Start Guide</h3>
+                <p>Welcome to the Minecraft Local Server Manager! Follow these steps to get started:</p>
+                <ol>
+                    <li>Create a new server by clicking "Add Server" on the Server List page.</li>
+                    <li>Configure your server settings, including game version and world type.</li>
+                    <li>Start your server from the Workspace page.</li>
+                    <li>Connect to your server using the local IP address and port number provided.</li>
+                </ol>
+            </div>
+
+            <div class="help-section">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">How do I install plugins on my server?</div>
+                    <div class="faq-answer">To install plugins, navigate to the "Plugins" tab in your server's
+                        workspace. You can upload .jar files directly or browse our curated list of popular plugins.
+                        After uploading, restart your server to activate the plugins.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">How can I make my server accessible from the
+                        internet?</div>
+                    <div class="faq-answer">To make your server accessible from the internet, you'll need to set up port
+                        forwarding on your router. Navigate to your router's configuration page and forward the port
+                        your Minecraft server is using (default is 25565) to your local PC's IP address.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">How do I change the world seed?</div>
+                    <div class="faq-answer">To change the world seed, stop your server, go to the "Settings" tab in your
+                        server's workspace, and look for the "World Seed" option. Enter your desired seed and save the
+                        changes. When you start the server again, a new world will be generated with the new seed.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">Can I run multiple servers at the same time?
+                    </div>
+                    <div class="faq-answer">Yes, you can run multiple servers simultaneously. Each server will need its
+                        own unique port number. Be mindful of your computer's resources, as running multiple servers can
+                        be demanding on CPU and RAM.</div>
+                </div>
+            </div>
+
+            <div class="help-section">
+                <h3>Troubleshooting</h3>
+                <h4>Common Issues:</h4>
+                <ul>
+                    <li>Server won't start: Check your Java installation and ensure you have allocated enough RAM.</li>
+                    <li>Can't connect to server: Verify the server is running and check your firewall settings.</li>
+                    <li>Lag or poor performance: Lower your render distance and limit the number of players or plugins.
+                    </li>
+                </ul>
+                <p>For more detailed troubleshooting, please consult our <a
+                        href="/app/help/troubleshooting">comprehensive guide</a>.</p>
+            </div>
+
+            <div class="help-section">
+                <h3>Contact Support</h3>
+                <p>If you're still having issues or need further assistance, our support team is here to help!</p>
+                <button onclick="location.href='/app/help/contact'">Contact Support</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="help.js"></script>
+</body>
+
+</html>
